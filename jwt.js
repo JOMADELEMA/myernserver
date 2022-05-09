@@ -13,7 +13,7 @@ const createTokens = (user) => {
 const validateToken = (req, res, next)=>{
     const accessToken = req.cookies['access-token']
 
-    if(!accessToken) return res.status(400).send({error: "Usuario no autenticado"});
+    if(!accessToken) return res.status(400).send({error: "Usuario no autenticado por que no envía la cookie"});
 
     try {
         const validToken = verify(accessToken, "jwtSecretCodeCambiar");

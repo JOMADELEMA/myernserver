@@ -13,7 +13,9 @@ exports.listarPosts = (Data, callback) => {
         console.log(error.message);
         return callback(error);
       }
+      console.log("sin error en servicio")
       return callback(null, results);
+
     }
   );
 };

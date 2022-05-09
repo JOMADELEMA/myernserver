@@ -76,7 +76,7 @@ exports.validarUsuario = (req, res, next) => {
 
       res.cookie('access-token', accessToken, {
           maxAge: 60*60*24*1000,
-          httpOnly:true,
+          // httpOnly:true,
       })
 
       return res
