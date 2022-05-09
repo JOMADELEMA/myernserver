@@ -17,6 +17,9 @@ app.use('/posts', postsRoutes);
 const usuariosRoutes = require('./routes/users.route');
 app.use('/usuarios', usuariosRoutes);
 
+const authRoutes = require('./routes/auth.route');
+app.use('/auth', authRoutes);
+
 
 app.listen(3100, ()=> {
     console.log("Escuchando....");
