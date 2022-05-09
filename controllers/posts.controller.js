@@ -1,4 +1,4 @@
-const { posix } = require("path");
+
 const postsService = require("../services/posts.service");
 
 exports.listarPosts = (req, res, next) => {
