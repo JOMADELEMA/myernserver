@@ -15,3 +15,18 @@ exports.registrarUsuario = (data, callback)=> {
         }
     );
 };
+
+exports.validarUsuario = (data, callback)=> {
+    db.query(
+        `SELECT * FROM 
+        myern.usuario
+        WHERE id_usuario = ? LIMIT 1`, 
+        [data.id_usuario],
+        (error, results, fields)=>{
+            if(error){
+                return callback(error.message);
+            }
+            return callback(null, results);
+        }
+    );
+};
