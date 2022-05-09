@@ -1,6 +1,8 @@
 const db = require("../config/db.config");
 
 exports.listarPosts = (Data, callback) => {
+
+  console.log("llamada a Servicio")
   db.query(
     `
     SELECT * FROM myern.post
