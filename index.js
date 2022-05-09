@@ -1,11 +1,13 @@
 const express = require('express');
 const {response } = require('express');
+const cookieParser = require('cookie-parser');
 
 
 var cors = require("cors");
 const app = express();
 
 app.use(cors());
+app.use(cookieParser());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
