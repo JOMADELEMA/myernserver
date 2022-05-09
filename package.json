@@ -1,0 +1,25 @@
+{
+  "name": "myernserver",
+  "version": "1.0.0",
+  "description": "API myern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JOMADELEMA/myernserver.git"
+  },
+  "keywords": [
+    "myern"
+  ],
+  "author": "JOMA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JOMADELEMA/myernserver/issues"
+  },
+  "homepage": "https://github.com/JOMADELEMA/myernserver#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
