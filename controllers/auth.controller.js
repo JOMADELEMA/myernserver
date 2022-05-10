@@ -1,7 +1,6 @@
 const authService = require("../services/auth.service");
 const bcrypt = require("bcrypt");
 const { createTokens } = require("../jwt");
-// const cookieParser = require("cookie-parser");
 
 exports.registrarUsuario = (req, res, next) => {
   bcrypt
@@ -57,11 +56,7 @@ exports.validarUsuario = (req, res, next) => {
     const dbPass = results[0].contrasena;
 
     bcrypt.compare(req.body.contrasena, dbPass, (err, result) => {
-      //   console.log(result);
-      //   console.log("............");
-
       if (!result) {
-        // console.log("No hay match");
         return res
           .status(400)
           .send({ success: 0, data: "Usuario o contraseña Invalidos" });
@@ -74,15 +69,12 @@ exports.validarUsuario = (req, res, next) => {
         id_rol: results[0].id_rol,
       };
 
-      //   console.log("Si hay match");
-      //   console.log(usuario);
       const accessToken = createTokens(usuario);
-      //   console.log(accessToken);
 
-      res.cookie('access-token', accessToken, {
-          maxAge: 60*60*24*1000,
-          // httpOnly:true,
-      })
+      res.cookie("access-token", accessToken, {
+        maxAge: 60 * 60 * 24 * 1000,
+        httpOnly: true,
+      });
 
       return res
         .status(200)
