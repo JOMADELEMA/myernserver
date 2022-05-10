@@ -3,7 +3,7 @@ const {sign, verify} = require('jsonwebtoken');
 const createTokens = (user) => {
     // console.log(user);
     const accessToken = sign(
-        {id_usuario: user.id_usuario, nombre: user.name, apellido: user.apellido},
+        {id_usuario: user.id_usuario, nombre: user.nombre, apellido: user.apellido, id_rol: user.id_rol},
         "jwtSecretCodeCambiar",
         {}
     );

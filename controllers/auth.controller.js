@@ -12,7 +12,11 @@ exports.registrarUsuario = (req, res, next) => {
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         contrasena: hash,
+        id_rol: req.body.id_rol,
       };
+
+      console.log("data en controller");
+      console.log(data);
 
       authService.registrarUsuario(data, (error, results) => {
         if (error) {
@@ -67,6 +71,7 @@ exports.validarUsuario = (req, res, next) => {
         id_usuario: results[0].id_usuario,
         nombre: results[0].nombre,
         apellido: results[0].apellido,
+        id_rol: results[0].id_rol,
       };
 
       //   console.log("Si hay match");
