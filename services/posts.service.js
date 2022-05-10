@@ -1,8 +1,7 @@
 const db = require("../config/db.config");
 
 exports.listarPosts = (Data, callback) => {
-
-  console.log("llamada a Servicio")
+  console.log("llamada a Servicio");
   db.query(
     `
     SELECT * FROM myern.post
@@ -13,9 +12,7 @@ exports.listarPosts = (Data, callback) => {
         console.log(error.message);
         return callback(error);
       }
-      console.log("sin error en servicio")
       return callback(null, results);
-
     }
   );
 };
