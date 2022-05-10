@@ -36,3 +36,22 @@ exports.agregarPost = (req, res, next) => {
     });
   });
 };
+
+exports.listarMisPosts = (req, res, next) => {
+  console.log(req.body);
+  const data = {
+    id_usuario: req.body.id_usuario,
+  };
+
+  postsService.listarMisPosts(data, (error, results) => {
+    if (error) {
+      console.log(error);
+      return res.status(400).send({ success: 0, data: "Bad Request" });
+    }
+
+    return res.status(200).send({
+      success: 1,
+      data: results,
+    });
+  });
+};
