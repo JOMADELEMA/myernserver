@@ -19,10 +19,10 @@ exports.listarPosts = (Data, callback) => {
 exports.agregarPost = (data, callback) => {
   db.query(
     `INSERT INTO 
-      myern.post (id_post, texto, fecha_creacion, id_usuario)
-      VALUES (?, ?, ?, ?)
+      myern.post (texto, fecha_creacion, id_usuario)
+      VALUES (?, ?, ?)
       `,
-    [data.id_post, data.texto, data.fecha_creacion, data.id_usuario],
+    [data.texto, data.fecha_creacion, data.id_usuario],
     (error, results, fields) => {
       if (error) {
         return callback(error);
@@ -33,8 +33,8 @@ exports.agregarPost = (data, callback) => {
 };
 
 exports.listarMisPosts = (data, callback) => {
-  console.log("llamada a Servicio");
-  console.log(data);
+  // console.log("llamada a Servicio");
+  // console.log(data);
 
   db.query(
     `
@@ -47,7 +47,7 @@ exports.listarMisPosts = (data, callback) => {
         console.log(error.message);
         return callback(error);
       }
-      console.log(results);
+      // console.log(results);
       return callback(null, results);
     }
   );

@@ -19,7 +19,6 @@ exports.listarPosts = (req, res, next) => {
 
 exports.agregarPost = (req, res, next) => {
   const data = {
-    id_post: req.body.id_post,
     texto: req.body.texto,
     fecha_creacion: req.body.fecha_creacion,
     id_usuario: req.body.id_usuario,
@@ -38,7 +37,7 @@ exports.agregarPost = (req, res, next) => {
 };
 
 exports.listarMisPosts = (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const data = {
     id_usuario: req.body.id_usuario,
   };
