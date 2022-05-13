@@ -54,3 +54,20 @@ exports.listarMisPosts = (req, res, next) => {
     });
   });
 };
+
+exports.detallePost = (req, res, next) => {
+  const data = {
+    id_post: req.body.id_post,
+  };
+
+  postsService.detallePost(data, (error, results) => {
+    if (error) {
+      console.log(error);
+      return res.status(400).send({ success: 0, data: "Bad Request" });
+    }
+    return res.status(200).send({
+      succes: 1,
+      data: results,
+    });
+  });
+};

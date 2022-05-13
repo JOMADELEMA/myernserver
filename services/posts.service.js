@@ -52,3 +52,19 @@ exports.listarMisPosts = (data, callback) => {
     }
   );
 };
+
+exports.detallePost = (data, callback) => {
+  db.query(
+    `SELECT * FROM myern.post
+    WHERE id_post = ?
+    LIMIT 1`,
+    [data.id_post],
+    (error, results, fields) => {
+      if (error) {
+        console.log(error.message);
+        return callback(error);
+      }
+      return callback(null, results);
+    }
+  );
+};
