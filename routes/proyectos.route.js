@@ -7,5 +7,6 @@ var router = express.Router();
 router.get("/listar-proyectos", validateToken, proyectosController.listarProyectos);
 router.post("/listar-mis-proyectos", validateToken, proyectosController.listarMisProyectos);
 router.post("/proyecto", validateToken, proyectosController.detalleProyecto);
+router.post("/agregar-proyecto", validateToken, proyectosController.agregarProyecto);
 
 module.exports = router;

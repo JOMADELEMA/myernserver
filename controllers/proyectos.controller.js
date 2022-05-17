@@ -48,3 +48,23 @@ exports.detalleProyecto = (req, res, next) => {
     });
   });
 };
+
+exports.agregarProyecto = (req, res, next) => {
+  const data = {
+    descripcion: req.body.descripcion,
+    comentarios: req.body.comentarios,
+    fecha_creacion: req.body.fecha_creacion,
+    id_usuario: req.body.id_usuario,
+  };
+
+  proyectosService.agregarProyecto(data, (error, results) => {
+    if (error) {
+      console.log(error);
+      return res.status(400).send({ success: 0, data: "Bad Request" });
+    }
+    return res.status(200).send({
+      success: 1,
+      data: results,
+    });
+  });
+};
