@@ -26,6 +26,9 @@ app.use("/usuarios", usuariosRoutes);
 const authRoutes = require("./routes/auth.route");
 app.use("/auth", authRoutes);
 
+const etiquetasRoutes = require("./routes/etiquetas.route");
+app.use("/etiquetas", etiquetasRoutes);
+
 app.listen(3100, () => {
   console.log("Escuchando....");
 });
