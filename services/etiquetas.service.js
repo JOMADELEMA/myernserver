@@ -1,6 +1,6 @@
 const db = require("../config/db.config");
 
-exports.listarEtiquetas = (data, callback) => {
+exports.listarEtiquetasProyecto = (data, callback) => {
   db.query(
     `
         SELECT e.nombre
@@ -14,6 +14,22 @@ exports.listarEtiquetas = (data, callback) => {
       if (error) {
         console.log(error);
         return callback(error);
+      }
+      return callback(null, results);
+    }
+  );
+};
+
+exports.listarEtiquetas = (data, callback) => {
+  db.query(
+    `
+    SELECT * FROM myern.etiqueta;
+    `,
+    [],
+    (error, results, fields) => {
+      if (error) {
+        console.log(error);
+        return callback(null, results);
       }
       return callback(null, results);
     }
