@@ -15,6 +15,8 @@ exports.listarEtiquetasProyecto = (data, callback) => {
         console.log(error);
         return callback(error);
       }
+      // console.log("desde servicio")
+      // console.log(results);
       return callback(null, results);
     }
   );
@@ -26,6 +28,23 @@ exports.listarEtiquetas = (data, callback) => {
     SELECT * FROM myern.etiqueta;
     `,
     [],
+    (error, results, fields) => {
+      if (error) {
+        console.log(error);
+        return callback(null, results);
+      }
+      return callback(null, results);
+    }
+  );
+};
+
+exports.agregarEtiquetasProyecto = (data, callback) => {
+  db.query(
+    `
+      INSERT INTO myern.proyecto_x_etiqueta (id_etiqueta, id_proyecto)
+      VALUES (?, ?);
+    `,
+    [data.id_etiqueta, data.id_proyecto],
     (error, results, fields) => {
       if (error) {
         console.log(error);

@@ -43,16 +43,17 @@ exports.detalleProyecto = (data, callback) => {
 exports.agregarProyecto = (data, callback) => {
   db.query(
     `
-        INSERT INTO myern.proyecto
-       (descripcion, comentarios, fecha_creacion, id_usuario)
-       VALUES (?, ?,?,?)
-        `,
+      INSERT INTO myern.proyecto
+      (descripcion, comentarios, fecha_creacion, id_usuario)
+      VALUES (?,?,?,?);
+      `,
     [data.descripcion, data.comentarios, data.fecha_creacion, data.id_usuario],
     (error, results, fields) => {
       if (error) {
         return callback(error);
       }
-      return callback(null, "Proyecto agregado exitosamente!");
+      // console.log(results);
+      return callback(null, results.insertId);
     }
   );
 };
